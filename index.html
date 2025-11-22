@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Budi Utoyo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#8b5cf6",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fadeInUp {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+  >
+    <!-- Navigation -->
+    <nav
+      class="bg-white dark:bg-gray-800 shadow-lg fixed w-full top-0 z-50 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <a
+              href="#home"
+              class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+            >
+              My.Portfolio
+            </a>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="nav-link text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+              >About</a
+            >
+            <a
+              href="#assignments"
+              class="nav-link text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+              >Assignments</a
+            >
+            <a
+              href="#gallery"
+              class="nav-link text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+              >Gallery</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Dark Mode Toggle & Mobile Menu Button -->
+          <div class="flex items-center space-x-4">
+            <!-- Dark Mode Toggle -->
+            <button
+              id="themeToggle"
+              class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200"
+            >
+              <svg
+                id="sunIcon"
+                class="w-5 h-5 text-yellow-500 hidden"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <svg
+                id="moonIcon"
+                class="w-5 h-5 text-indigo-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button
+              id="mobileMenuBtn"
+              class="md:hidden p-2 rounded-lg bg-gray-200 dark:bg-gray-700"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="#home"
+            class="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >About</a
+          >
+          <a
+            href="#assignments"
+            class="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >Assignments</a
+          >
+          <a
+            href="#gallery"
+            class="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >Gallery</a
+          >
+          <a
+            href="#contact"
+            class="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center pt-16 px-4"
+    >
+      <div class="max-w-7xl mx-auto text-center">
+        <div class="animate-fadeInUp">
+          <div class="mb-8">
+            <img
+              src="https://raw.githubusercontent.com/budihh/budi-portfolio-resources/de77a40eb2d3daa3b0849201373a26b5823c6d74/my%20picture.jpg"
+              alt="Profile"
+              class="w-48 h-48 rounded-full mx-auto shadow-2xl border-4 border-indigo-500 dark:border-purple-500 hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <h1
+            class="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-fadeInUp delay-100"
+          >
+            Budi Utoyo
+          </h1>
+          <p
+            class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 animate-fadeInUp delay-200"
+          >
+            Data Science Enthusiast | Informatics Engineering Student
+          </p>
+          <p
+            class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 animate-fadeInUp delay-300"
+          >
+            Selamat datang di portofolio pribadi saya. Saya adalah mahasiswa
+            yang antusias dalam dunia Data Science, dengan minat pada analisis
+            data, machine learning, dan teknologi AI modern.
+          </p>
+          <div class="flex justify-center space-x-4 animate-fadeInUp delay-300">
+            <a
+              href="#contact"
+              class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300"
+            >
+              Contact Me
+            </a>
+            <a
+              href="#about"
+              class="px-8 py-3 border-2 border-indigo-600 dark:border-purple-500 text-indigo-600 dark:text-purple-400 rounded-full hover:bg-indigo-600 hover:text-white dark:hover:bg-purple-600 transition-all duration-300"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-white dark:bg-gray-800">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+        >
+          About Me
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Bio Card -->
+          <div
+            class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+          >
+            <h3
+              class="text-2xl font-bold mb-4 text-indigo-600 dark:text-purple-400"
+            >
+              Bio Singkat
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Saya adalah mahasiswa Teknik Informatika yang tertarik pada dunia
+              Data Science dan teknologi berbasis AI. Saya fokus mempelajari
+              analisis data, pemodelan machine learning, dan membangun solusi
+              cerdas berbasis data.
+            </p>
+          </div>
+
+          <!-- Education Card -->
+          <div
+            class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+          >
+            <h3
+              class="text-2xl font-bold mb-4 text-indigo-600 dark:text-purple-400"
+            >
+              Pendidikan
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              <span class="font-semibold">Jurusan:</span> Teknik Informatika<br />
+              <span class="font-semibold">Institusi:</span> Universitas
+              Pamulang<br />
+              <span class="font-semibold">Fokus:</span> Data Science, Machine
+              Learning, dan Big Data Analytics
+            </p>
+          </div>
+        </div>
+
+        <!-- Skills Section -->
+<div class="mt-12">
+  <h3 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+    Skills & Technologies
+  </h3>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <!-- Python Card -->
+    <div class="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-indigo-500 hover:scale-105 cursor-pointer">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-10 h-10 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+          </svg>
+        </div>
+        <h4 class="font-bold text-lg mb-1 text-gray-900 dark:text-white">Python</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Data Analysis & ML</p>
+        <div class="mt-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-indigo-600 h-2 rounded-full" style="width: 85%"></div>
+        </div>
+        <span class="text-xs text-indigo-600 dark:text-indigo-400 mt-2 font-semibold">Advanced</span>
+      </div>
+    </div>
+
+    <!-- Machine Learning Card -->
+    <div class="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-purple-500 hover:scale-105 cursor-pointer">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-10 h-10 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 2.18l8 3.99v8.66c0 4.45-3.07 8.62-7.5 9.63v-6.46c2.1-.43 3.5-2.16 3.5-4.21 0-2.42-2.02-4.38-4.5-4.38S7 13.37 7 15.79c0 2.05 1.4 3.78 3.5 4.21v6.46C6.07 25.45 3 21.28 3 16.83V8.17l9-4.99zM12 13c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
+          </svg>
+        </div>
+        <h4 class="font-bold text-lg mb-1 text-gray-900 dark:text-white">Machine Learning</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">AI & Predictive Models</p>
+        <div class="mt-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-purple-600 h-2 rounded-full" style="width: 75%"></div>
+        </div>
+        <span class="text-xs text-purple-600 dark:text-purple-400 mt-2 font-semibold">Intermediate</span>
+      </div>
+    </div>
+
+    <!-- Data Visualization Card -->
+    <div class="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-pink-500 hover:scale-105 cursor-pointer">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-10 h-10 text-pink-600 dark:text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M3 13h2v8H3v-8zm4-4h2v12H7V9zm4-4h2v16h-2V5zm4 8h2v8h-2v-8zm4-4h2v12h-2V9z"/>
+          </svg>
+        </div>
+        <h4 class="font-bold text-lg mb-1 text-gray-900 dark:text-white">Data Visualization</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Charts & Insights</p>
+        <div class="mt-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-pink-600 h-2 rounded-full" style="width: 80%"></div>
+        </div>
+        <span class="text-xs text-pink-600 dark:text-pink-400 mt-2 font-semibold">Advanced</span>
+      </div>
+    </div>
+
+    <!-- Big Data Card -->
+    <div class="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-cyan-500 hover:scale-105 cursor-pointer">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-cyan-100 dark:bg-cyan-900/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-10 h-10 text-cyan-600 dark:text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/>
+            <circle cx="12" cy="7" r="1.5"/>
+            <circle cx="12" cy="12" r="1.5"/>
+            <circle cx="12" cy="17" r="1.5"/>
+          </svg>
+        </div>
+        <h4 class="font-bold text-lg mb-1 text-gray-900 dark:text-white">Big Data</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Analytics & Processing</p>
+        <div class="mt-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-cyan-600 h-2 rounded-full" style="width: 70%"></div>
+        </div>
+        <span class="text-xs text-cyan-600 dark:text-cyan-400 mt-2 font-semibold">Intermediate</span>
+      </div>
+    </div>
+
+    <!-- SQL Database Card -->
+    <div class="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-blue-500 hover:scale-105 cursor-pointer">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-10 h-10 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+          </svg>
+        </div>
+        <h4 class="font-bold text-lg mb-1 text-gray-900 dark:text-white">SQL Database</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Query & Management</p>
+        <div class="mt-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
+        </div>
+        <span class="text-xs text-blue-600 dark:text-blue-400 mt-2 font-semibold">Intermediate</span>
+      </div>
+    </div>
+
+    <!-- TensorFlow Card -->
+    <div class="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-orange-500 hover:scale-105 cursor-pointer">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-10 h-10 text-orange-600 dark:text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.168 3.564.015-5.31zm21.43 5.311l-.014-5.31L12.46 0v24l4.095-2.378V14.87l3.092 1.788-.018-4.618-3.074-1.756V7.603z"/>
+          </svg>
+        </div>
+        <h4 class="font-bold text-lg mb-1 text-gray-900 dark:text-white">TensorFlow</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Deep Learning Framework</p>
+        <div class="mt-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-orange-600 h-2 rounded-full" style="width: 65%"></div>
+        </div>
+        <span class="text-xs text-orange-600 dark:text-orange-400 mt-2 font-semibold">Learning</span>
+      </div>
+    </div>
+
+    <!-- Pandas Card -->
+    <div class="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-green-500 hover:scale-105 cursor-pointer">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-10 h-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
+          </svg>
+        </div>
+        <h4 class="font-bold text-lg mb-1 text-gray-900 dark:text-white">Pandas</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Data Manipulation</p>
+        <div class="mt-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-green-600 h-2 rounded-full" style="width: 80%"></div>
+        </div>
+        <span class="text-xs text-green-600 dark:text-green-400 mt-2 font-semibold">Advanced</span>
+      </div>
+    </div>
+
+    <!-- Scikit-learn Card -->
+    <div class="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-teal-500 hover:scale-105 cursor-pointer">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-10 h-10 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+          </svg>
+        </div>
+        <h4 class="font-bold text-lg mb-1 text-gray-900 dark:text-white">Scikit-learn</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">ML Algorithms</p>
+        <div class="mt-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-teal-600 h-2 rounded-full" style="width: 75%"></div>
+        </div>
+        <span class="text-xs text-teal-600 dark:text-teal-400 mt-2 font-semibold">Intermediate</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Assignments Section -->
+<section id="assignments" class="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            Assignments
+        </h2>
+        <p class="text-center text-gray-600 dark:text-gray-400 mb-12">Koleksi tugas mata kuliah Pemrograman Web</p>
+        
+        <!-- Assignment Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <!-- Assignment 1 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-indigo-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">01</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Pofil Dosen</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Nama, latar belakang pendidikan, pengalaman dan keahlian yang relevan.</p>
+                <span class="text-sm text-gray-500 dark:text-gray-400 italic">Tidak Ada Tugas</span>
+            </div>
+
+            <!-- Assignment 2 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-purple-600 dark:text-purple-400">02</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Struktur & Heading </h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Penggunaan heading, paragraf, dan pemisah untuk menyusun halaman.</p>
+                <a href="pertemuan 2.html" 
+                   target="_blank"
+                   class="text-sm text-purple-600 dark:text-purple-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 3 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-pink-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-pink-600 dark:text-pink-400">03</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Tag teks khusus</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Contoh tag format teks (bold, italic, sub/sup, code, dll.).</p>
+                <a href="pertemuan 3.html" 
+                   target="_blank"
+                   class="text-sm text-pink-600 dark:text-pink-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 4 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-red-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-red-600 dark:text-red-400">04</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Menampilkan Video</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Embedding video di HTML</p>
+                <a href="pertemuan 4.html" 
+                   target="_blank"
+                   class="text-sm text-red-600 dark:text-red-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 5 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-orange-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-orange-600 dark:text-orange-400">05</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Hyperlink & Navigasi</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Menu tautan, link eksternal dan email dengan styling sederhana.</p>
+                <a href="pertemuan 5.html" 
+                   target="_blank"
+                   class="text-sm text-orange-600 dark:text-orange-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 6 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-yellow-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-yellow-600 dark:text-yellow-400">06</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Daftar Bersarang</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Contoh ol/ul bersarang untuk struktur berjenjang.</p>
+                <a href="pertemuan 6.html" 
+                   target="_blank"
+                   class="text-sm text-yellow-600 dark:text-yellow-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 7 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-green-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-green-600 dark:text-green-400">07</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Tabel HTML</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Pembuatan tabel, colspan/rowspan, dan caption untuk data.</p>
+                <a href="pertemuan 7.html" 
+                   target="_blank"
+                   class="text-sm text-green-600 dark:text-green-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 8 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-teal-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-teal-600 dark:text-teal-400">08</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Form Dasar</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Form registrasi dengan input, radio, select, textarea, submit/reset.</p>
+                <a href="pertemuan 8.html" 
+                   target="_blank"
+                   class="text-sm text-teal-600 dark:text-teal-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 9 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-cyan-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-cyan-600 dark:text-cyan-400">09</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Elemen Visual Lama</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Contoh marquee/blink dan pengaturan tipografi.</p>
+                <a href="pertemuan 9.html" 
+                   target="_blank"
+                   class="text-sm text-cyan-600 dark:text-cyan-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 10 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">10</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">IFRAME</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Menampilkan halaman eksternal dalam iframe.</p>
+                <a href="pertemuan 10.html" 
+                   target="_blank"
+                   class="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 11 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-indigo-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">11</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Layout Design</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Membuat layout halaman web</p>
+                <a href="pertemuan 11.html" 
+                   target="_blank"
+                   class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 12 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-purple-600 dark:text-purple-400">12</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Advanced Layout</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Layout dengan CSS modern</p>
+                <a href="pertemuan 12/layout.html" 
+                   target="_blank"
+                   class="text-sm text-purple-600 dark:text-purple-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 13 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-pink-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-pink-600 dark:text-pink-400">13</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Class vs ID</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Perbedaan penggunaan id (unik) dan class (berulang).</p>
+                <a href="pertemuan 13.html" 
+                  target="_blank"
+                  class="text-sm text-pink-600 dark:text-pink-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 14 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-red-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-red-600 dark:text-red-400">14</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Variabel JS & Alert</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Variabel, alert(), dan document.write() sederhana.</p>
+                <a href="pertemuan 14.html" 
+                  target="_blank"
+                  class="text-sm text-red-600 dark:text-red-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 15 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-orange-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-orange-600 dark:text-orange-400">15</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Prompt & Kalkulasi</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Input lewat prompt, operasi aritmatika, tampilkan hasil.</p>
+                <a href="pertemuan 15.html" 
+                  target="_blank"
+                  class="text-sm text-orange-600 dark:text-orange-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 16 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-yellow-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-yellow-600 dark:text-yellow-400">16</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Kalkulator Interaktif </h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Form + JS untuk operasi (+,-,*,/,^) dan validasi.</p>
+                <a href="pertemuan 16.html" 
+                  target="_blank"
+                  class="text-sm text-yellow-600 dark:text-yellow-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 17 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-green-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-green-600 dark:text-green-400">17</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Hitung Harga & Diskon</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Menghitung total, diskon berdasarkan ambang, dan harga bersih.</p>
+                <a href="pertemuan 17.html" 
+                  target="_blank"
+                  class="text-sm text-green-600 dark:text-green-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 18 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-teal-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-teal-600 dark:text-teal-400">18</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Radio Buttons</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Contoh penggunaan radio dan pembacaan nilai via JS.</p>
+                <a href="pertemuan 18.html" 
+                  target="_blank"
+                  class="text-sm text-teal-600 dark:text-teal-400 hover:underline flex items-center">
+                    Lihat Tugas
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assignment 19 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-cyan-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-cyan-600 dark:text-cyan-400">19</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Git & GitHub</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Version control dan collaboration</p>
+                <span class="text-sm text-gray-500 dark:text-gray-400 italic">Belum tersedia</span>
+            </div>
+
+            <!-- Assignment 20 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">20</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Web Deployment</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Deploy ke Netlify, Vercel, GitHub Pages</p>
+              <span class="text-sm text-gray-500 dark:text-gray-400 italic">Belum tersedia</span>
+            </div>
+
+            <!-- Assignment 21 -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-violet-500 hover:scale-105 cursor-pointer">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-2xl font-bold text-violet-600 dark:text-violet-400">21</span>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                    </svg>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Final Project</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Portfolio website dengan semua fitur</p>
+              <span class="text-sm text-gray-500 dark:text-gray-400 italic">Belum tersedia</span>
+           </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-4 bg-white dark:bg-gray-800">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white"
+        >
+          Gallery
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Gallery Item 1 -->
+          <div
+            class="gallery-item relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500"
+              alt="Project 1"
+              class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+            >
+              <p class="text-white p-4 font-semibold">
+                Web Development Project
+              </p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 2 -->
+          <div
+            class="gallery-item relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500"
+              alt="Project 2"
+              class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+            >
+              <p class="text-white p-4 font-semibold">Coding Session</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 3 -->
+          <div
+            class="gallery-item relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=500"
+              alt="Project 3"
+              class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+            >
+              <p class="text-white p-4 font-semibold">Tech Workspace</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 4 -->
+          <div
+            class="gallery-item relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500"
+              alt="Project 4"
+              class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+            >
+              <p class="text-white p-4 font-semibold">Programming</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 5 -->
+          <div
+            class="gallery-item relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=500"
+              alt="Project 5"
+              class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+            >
+              <p class="text-white p-4 font-semibold">Team Collaboration</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 6 -->
+          <div
+            class="gallery-item relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=500"
+              alt="Project 6"
+              class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+            >
+              <p class="text-white p-4 font-semibold">Innovation & Tech</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+      <div class="max-w-4xl mx-auto">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+        >
+          Contact Me
+        </h2>
+
+        <!-- Contact Info Cards -->
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div class="flex items-center space-x-4">
+              <div class="bg-green-500 p-3 rounded-lg">
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">WhatsApp</p>
+                <p class="font-semibold text-gray-900 dark:text-white">
+                  +62 857-0097-2074
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div class="flex items-center space-x-4">
+              <div class="bg-indigo-500 p-3 rounded-lg">
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                  />
+                  <path
+                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">Email</p>
+                <p class="font-semibold text-gray-900 dark:text-white">
+                  budiutoyo158@gmail.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
+          <form id="contactForm" class="space-y-6">
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >Nama Lengkap</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                placeholder="Masukkan nama Anda"
+              />
+            </div>
+
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                placeholder="email@example.com"
+              />
+            </div>
+
+            <div>
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >Pesan</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                placeholder="Tulis pesan Anda di sini..."
+              ></textarea>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                type="button"
+                id="sendWhatsApp"
+                class="flex-1 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                  />
+                </svg>
+                <span>Kirim via WhatsApp</span>
+              </button>
+
+              <button
+                type="button"
+                id="sendEmail"
+                class="flex-1 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                  />
+                  <path
+                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                  />
+                </svg>
+                <span>Kirim via Email</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-white dark:bg-gray-800 py-8 px-4 border-t border-gray-200 dark:border-gray-700"
+    >
+      <div class="max-w-7xl mx-auto text-center">
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          © 2025 Budi Utoyo. All rights reserved.
+        </p>
+        <div class="flex justify-center space-x-6">
+          <a
+            href="#"
+            class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+              />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal for Gallery -->
+    <div
+      id="imageModal"
+      class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50 p-4"
+    >
+      <div class="relative max-w-5xl w-full">
+        <button
+          id="closeModal"
+          class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors duration-200 z-10"
+        >
+          &times;
+        </button>
+        <img
+          id="modalImage"
+          src=""
+          alt="Gallery Image"
+          class="w-full h-auto rounded-lg shadow-2xl"
+        />
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Dark Mode Toggle
+      const themeToggle = document.getElementById("themeToggle");
+      const sunIcon = document.getElementById("sunIcon");
+      const moonIcon = document.getElementById("moonIcon");
+      const html = document.documentElement;
+
+      // Check for saved theme preference or default to 'light' mode
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        html.classList.add("dark");
+        sunIcon.classList.remove("hidden");
+        moonIcon.classList.add("hidden");
+      }
+
+      themeToggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+
+        if (html.classList.contains("dark")) {
+          localStorage.setItem("theme", "dark");
+          sunIcon.classList.remove("hidden");
+          moonIcon.classList.add("hidden");
+        } else {
+          localStorage.setItem("theme", "light");
+          sunIcon.classList.add("hidden");
+          moonIcon.classList.remove("hidden");
+        }
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Smooth Scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Gallery Modal
+      const galleryItems = document.querySelectorAll(".gallery-item");
+      const imageModal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+      const closeModal = document.getElementById("closeModal");
+
+      galleryItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const img = item.querySelector("img");
+          modalImage.src = img.src;
+          imageModal.classList.remove("hidden");
+          imageModal.classList.add("flex");
+        });
+      });
+
+      closeModal.addEventListener("click", () => {
+        imageModal.classList.add("hidden");
+        imageModal.classList.remove("flex");
+      });
+
+      imageModal.addEventListener("click", (e) => {
+        if (e.target === imageModal) {
+          imageModal.classList.add("hidden");
+          imageModal.classList.remove("flex");
+        }
+      });
+
+      // Contact Form - WhatsApp Integration
+      const sendWhatsApp = document.getElementById("sendWhatsApp");
+      const sendEmail = document.getElementById("sendEmail");
+      const contactForm = document.getElementById("contactForm");
+
+      sendWhatsApp.addEventListener("click", () => {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        if (!name || !email || !message) {
+          alert("Mohon lengkapi semua field!");
+          return;
+        }
+
+        const phoneNumber = "6285700972074"; // Format: country code + number (no + or spaces)
+        const text = `Nama: ${name}%0AEmail: ${email}%0APesan: ${message}`;
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${text}`;
+
+        window.open(whatsappUrl, "_blank");
+      });
+
+      // Contact Form - Email Integration
+      sendEmail.addEventListener("click", () => {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        if (!name || !email || !message) {
+          alert("Mohon lengkapi semua field!");
+          return;
+        }
+
+        const emailAddress = "budiutoyo158@gmail.com";
+        const subject = "Pesan Dari Website Portfolio";
+        const body = `Nama: ${name}%0AEmail: ${email}%0A%0APesan:%0A${message}`;
+        const mailtoUrl = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+
+        window.location.href = mailtoUrl;
+      });
+
+      // Active Navigation Link
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove(
+            "text-indigo-600",
+            "dark:text-indigo-400",
+            "font-semibold"
+          );
+          if (link.getAttribute("href").substring(1) === current) {
+            link.classList.add(
+              "text-indigo-600",
+              "dark:text-indigo-400",
+              "font-semibold"
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
